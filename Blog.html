@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <script src="Blog.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-100  overflow-x-hidden ">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-gray-900">My Blog</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class=" border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Page Content -->
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Welcome to My Blog</h1>
+
+            <!-- Create a New Post Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Create a New Post</h2>
+                <form id="postForm" class="space-y-4">
+                    <input 
+                        type="text" 
+                        id="postTitle" 
+                        placeholder="Post Title" 
+                        class="w-full p-2 border rounded-md" 
+                        required 
+                    />
+                    <textarea 
+                        id="postContent" 
+                        placeholder="Post Content" 
+                        class="w-full p-2 border rounded-md h-32" 
+                        required
+                    ></textarea>
+                    <div class="flex items-center space-x-2">
+                        <input 
+                            type="file" 
+                            id="imageUpload" 
+                            accept="image/*" 
+                            class="hidden"
+                        />
+                        <div class="flex items-center sm:space-x-4 sm:flex-row  flex-col space-y-3 sm:items-center md:items-end ">
+                            <button 
+                                type="button" 
+                                onclick="document.getElementById('imageUpload').click()" 
+                                class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 flex items-center"
+                            >
+                                <span class="mr-2">Upload Image</span>
+                            </button>
+                            <span id="fileName" class="text-sm text-gray-500"></span>
+                            
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded  hover:bg-indigo-700">
+                                Create Post
+                            </button>
+                        </div>
+                        
+                </form>
+            </section>
+
+            <!-- Recent Posts Section -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Recent Posts</h2>
+                <div id="postList" class="grid gap-6 md:grid-cols-2">
+                    <!-- Posts will be dynamically added here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Full Post Modal -->
+    <div id="fullPostModal" class="fixed inset-0 bg-white z-50 p-6 hidden overflow-auto">
+        <button onclick="closeFullPost()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+            ✖️         </button>
+        <div class="max-w-3xl mx-auto mt-12">
+            <h1 id="fullPostTitle" class="text-3xl font-bold mb-4"></h1>
+            <img id="fullPostImage" src="" alt="" class="w-full h-auto mb-4 rounded-lg hidden">
+            <p id="fullPostContent" class="text-gray-700 whitespace-pre-wrap"></p>
+        </div>
+    </div>
+</body>
+</html>

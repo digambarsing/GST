@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyGST Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide-icons/dist/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-100 to-white overflow-x-hidden ">
+    <header class="container mx-auto py-6">
+        <!-- <h1 class="text-3xl font-bold text-blue-800">EasyGST Registration</h1> -->
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Hassle-free GST Registration</h2>
+            <p class="text-xl text-gray-600 mb-6">We handle the paperwork so you can focus on your business</p>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg" onclick="setStep(1)">Start Your Registration</button>
+        </section>
+
+        <div class="w-full max-w-2xl mx-auto mb-12 bg-white shadow-md rounded-lg">
+            <div class="p-4 border-b">
+                <h3 class="text-lg font-bold">GST Registration Form</h3>
+                <p class="text-sm text-gray-500">Complete the steps below to register for GST</p>
+            </div>
+            <div class="p-4">
+                <div class="tabs">
+                    <div class="flex justify-between mb-4">
+                        <button class="tab" data-step="1" onclick="setStep(1)">Business Info</button>
+                        <button class="tab" data-step="2" onclick="setStep(2)">Contact Details</button>
+                        <button class="tab" data-step="3" onclick="setStep(3)">Document Upload</button>
+                    </div>
+                    <div id="step1" class="tab-content">
+                        <div class="space-y-4">
+                            <label for="businessName" class="block">Business Name</label>
+                            <input id="businessName" class="w-full border rounded p-2" placeholder="Enter your business name" required />
+                            <label for="businessType" class="block">Business Type</label>
+                            <input id="businessType" class="w-full border rounded p-2" placeholder="e.g., Sole Proprietorship, Partnership" required />
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg" onclick="nextStep()">Next <span data-lucide="arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <div id="step2" class="tab-content hidden">
+                        <div class="space-y-4">
+                            <label for="email" class="block">Email</label>
+                            <input id="email" type="email" class="w-full border rounded p-2" placeholder="your@email.com" required />
+                            <label for="phone" class="block">Phone Number</label>
+                            <input id="phone" type="tel" class="w-full border rounded p-2" placeholder="Enter your phone number" required />
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg" onclick="nextStep()">Next <span data-lucide="arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <div id="step3" class="tab-content hidden">
+                        <div class="space-y-4">
+                            <label for="panCard" class="block">PAN Card</label>
+                            <input id="panCard" type="file" class="border rounded p-2" required />
+                            <label for="addressProof" class="block">Address Proof</label>
+                            <input id="addressProof" type="file" class="border rounded p-2" required />
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg" onclick="submitRegistration()">Submit Registration</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t text-sm text-gray-500">Need help? Contact our support team.</div>
+        </div>
+
+        <section class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <h4 class="font-bold">Fast Processing</h4>
+                <p>Get your GST registration completed within 3-5 business days.</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <h4 class="font-bold">Expert Assistance</h4>
+                <p>Our team of tax experts will guide you through the entire process.</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4">
+                <h4 class="font-bold">100% Online</h4>
+                <p>Complete your GST registration from the comfort of your home or office.</p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Registration Progress</h3>
+            <div class="flex items-center space-x-4">
+                <span class="text-green-500" data-lucide="check-circle"></span>
+                <div class="flex-1 h-2 bg-gray-200 rounded-full">
+                    <div id="progressBar" class="h-2 bg-green-500 rounded-full" style="width: 0;"></div>
+                </div>
+                <span class="font-semibold" id="progressText">0%</span>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">What Our Clients Say</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white shadow-md rounded-lg p-4">
+                    <p class="italic">"Lakshay Consultancy made my registration process smooth and hassle-free. Highly recommended!"</p>
+                    <p class="font-semibold mt-2">- John Doe, Small Business Owner</p>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-4">
+                    <p class="italic">"The expert guidance I received was invaluable. Thank you, Lakshay Consultancy!"</p>
+                    <p class="font-semibold mt-2">- Jane Smith, Startup Founder</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h3>
+            <div class="border rounded">
+                <div class="accordion-item">
+                    <button class="accordion-trigger w-full text-left px-4 py-2 border-b" onclick="toggleAccordion(this)">What documents do I need for GST registration?</button>
+                    <div class="accordion-content hidden px-4 py-2 border-b">
+                        <p class="py-2"> ---> You'll need your PAN card, address proof, bank account details, and business incorporation documents.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger w-full text-left px-4 py-2 border-b" onclick="toggleAccordion(this)">How long does the GST registration process take?</button>
+                    <div class="accordion-content hidden px-4 py-2 border-b">
+                        <p class="py-2"> ---> With EasyGST, you can typically complete your GST registration within 3-5 business days.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger w-full text-left px-4 py-2 border-b" onclick="toggleAccordion(this)">Is GST registration mandatory for all businesses?</button>
+                    <div class="accordion-content hidden px-4 py-2 border-b">
+                        <p class="py-2"> ---> GST registration is mandatory for businesses with an annual turnover exceeding ₹40 lakhs (₹20 lakhs for special category states).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        let step = 1;
+
+        function setStep(newStep) {
+            step = newStep;
+            updateTabs();
+            updateProgress();
+        }
+
+        function nextStep() {
+            if (step < 3) {
+                step++;
+                updateTabs();
+                updateProgress();
+            }
+        }
+
+        function updateTabs() {
+            document.querySelectorAll('.tab-content').forEach((content) => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            document.querySelectorAll('.tab').forEach((tab) => {
+                tab.classList.remove('font-bold');
+            });
+            document.querySelector(`.tab[data-step="${step}"]`).classList.add('font-bold');
+        }
+        function updateProgress() {
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const progress = (step - 1) * 33.33;
+
+    // Update the width of the progress bar
+    progressBar.style.width = `${progress}%`;
+
+    // Update the text for progress percentage
+    progressText.innerText = `${progress.toFixed(0)}%`;
+
+    // Change color based on progress
+    if (progress < 35) {
+        progressBar.style.backgroundColor = 'red'; // Less than 33.33%
+    } else if (progress < 95) {
+        progressBar.style.backgroundColor = 'yellow'; // Between 33.34% and 99.99%
+    } else {
+        progressBar.style.backgroundColor = 'green'; // 100%
+    }
+}
+
+
+function submitRegistration() {
+    // Set progress to 100%
+    step = 4; // Set step to a value greater than 3 to simulate completion
+    updateProgress(); // Update the progress bar
+
+    // Show alert for successful registration
+    alert('Registration submitted successfully!');
+}
+
+
+        function toggleAccordion(trigger) {
+            const content = trigger.nextElementSibling;
+            content.classList.toggle('hidden');
+        }
+
+ 
+
+
+
+    </script>
+</body>
+</html>
