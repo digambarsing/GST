@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@google-cloud/dialogflow": "^6.10.0",
+    "groq-sdk": "^0.7.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}

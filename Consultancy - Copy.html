@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Advisory Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-purple-100 to-white overflow-x-hidden">
+
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoPlay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+            <source src="https://example.com/path-to-your-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div class="z-20 text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Expert GST Advisory Services</h1>
+            <p class="text-xl mb-8">Optimize your tax strategy and make informed business decisions</p>
+            <button class="bg-purple-600 text-white py-2 px-4 rounded-lg" onclick="scrollToServices()">Explore Our Services</button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16" id="servicesMain">
+        <section id="services" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Our GST Advisory Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border rounded-lg shadow-md p-6 bg-white">
+                    <h3 class="font-bold text-lg mb-2">GST Impact Analysis</h3>
+                    <p>Understand how GST affects your business operations and financial outcomes.</p>
+                </div>
+                <div class="border rounded-lg shadow-md p-6 bg-white">
+                    <h3 class="font-bold text-lg mb-2">Tax Optimization Strategies</h3>
+                    <p>Develop strategies to minimize tax liability while ensuring full compliance.</p>
+                </div>
+                <div class="border rounded-lg shadow-md p-6 bg-white">
+                    <h3 class="font-bold text-lg mb-2">Compliance Support</h3>
+                    <p>Stay up-to-date with changing GST regulations and filing requirements.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Tax Savings Calculator</h2>
+            <div class="max-w-md mx-auto border border-gray-300 rounded-lg shadow-md p-6 bg-white">
+                <h3 class="font-bold text-lg">Estimate Your Potential Savings</h3>
+                <p class="mb-4">Enter your annual turnover to see how much you could potentially save with our GST advisory services.</p>
+                <input id="annualTurnover" type="number" placeholder="Enter your annual turnover" class="border p-2 w-full my-2 rounded">
+                <button onclick="calculatePotentialSavings()" class="bg-purple-600 text-white py-2 px-4 rounded-lg w-full">Calculate Savings</button>
+                <p id="savingsOutput" class="text-lg font-semibold mt-4"></p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Book a Consultation</h2>
+            <div class="max-w-md mx-auto border border-gray-300 rounded-lg shadow-md p-6 bg-white">
+                <h3 class="font-bold text-lg">Schedule Your Free 30-Minute Consultation</h3>
+                <p class="mb-4">Speak with our GST experts and get personalized advice for your business.</p>
+                <input id="name" placeholder="Enter your full name" class="border p-2 w-full my-2 rounded">
+                <input id="email" type="email" placeholder="Enter your email" class="border p-2 w-full my-2 rounded">
+                <input id="phone" type="tel" placeholder="Enter your phone number" class="border p-2 w-full my-2 rounded">
+                <button onclick="openCalendar()" class="bg-purple-600 text-white py-2 px-4 rounded-lg w-full">Select Date</button>
+                <div id="calendar" class="hidden mt-4">
+                    <input type="date" id="selectedDate" class="border p-2 w-full my-2 rounded">
+                    <button onclick="confirmDate()" class="bg-purple-600 text-white py-2 px-4 rounded-lg w-full">Confirm Date</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Why Choose Our GST Advisory Services?</h2>
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div><h3 class="text-4xl font-bold text-purple-600 mb-2">500+</h3><p>Businesses Advised</p></div>
+                <div><h3 class="text-4xl font-bold text-purple-600 mb-2">₹100M+</h3><p>Tax Savings Achieved</p></div>
+                <div><h3 class="text-4xl font-bold text-purple-600 mb-2">15+</h3><p>Years of Experience</p></div>
+                <div><h3 class="text-4xl font-bold text-purple-600 mb-2">99%</h3><p>Client Satisfaction</p></div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Latest Insights</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border p-4">
+                    <h3 class="font-bold">Understanding the New GST E-invoicing System</h3>
+                    <p>Learn about the latest e-invoicing requirements and how they affect your business.</p>
+                    <!-- <button class="bg-purple-600 text-white py-2 px-4 rounded-lg">Read More</button> -->
+                </div>
+                <div class="border p-4">
+                    <h3 class="font-bold">GST Implications for E-commerce Businesses</h3>
+                    <p>Explore the unique GST challenges and opportunities for online retailers.</p>
+                    <!-- <button class="bg-purple-600 text-white py-2 px-4 rounded-lg">Read More</button> -->
+                </div>
+                <div class="border p-4">
+                    <h3 class="font-bold">Maximizing Input Tax Credit: Best Practices</h3>
+                    <p>Discover strategies to optimize your input tax credit and improve cash flow.</p>
+                    <!-- <button class="bg-purple-600 text-white py-2 px-4 rounded-lg">Read More</button> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <input type="text" id="faqSearch" placeholder="Search FAQs" class="border p-2 w-full mb-4 rounded" oninput="filterFAQs()">
+            <div id="faqs" class="max-w-2xl mx-auto">
+                <!-- FAQs will be populated here -->
+                <div class="faq-item border mb-2 rounded bg-gray-100">
+                    <div class="p-2 cursor-pointer" onclick="toggleAnswer(this)">
+                        <strong>What is GST?</strong>
+                    </div>
+                    <p class="answer hidden p-2">GST is Goods and Services Tax.</p>
+                </div>
+                <div class="faq-item border mb-2 rounded bg-gray-100">
+                    <div class="p-2 cursor-pointer" onclick="toggleAnswer(this)">
+                        <strong>How can GST affect my business?</strong>
+                    </div>
+                    <p class="answer hidden p-2">GST can affect pricing and cash flow.</p>
+                </div>
+                <div class="faq-item border mb-2 rounded bg-gray-100">
+                    <div class="p-2 cursor-pointer" onclick="toggleAnswer(this)">
+                        <strong>What are input tax credits?</strong>
+                    </div>
+                    <p class="answer hidden p-2">Input tax credits allow businesses to deduct tax paid on purchases.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mb-16">
+            <div class="bg-purple-100 rounded-lg shadow-lg">
+                <div class="p-4">
+                    <h2 class="text-center text-2xl font-bold">Stay Updated with GST News and Tips</h2>
+                </div>
+                <div class="p-4">
+                    <form id="subscriptionForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleSubscribe(event)">
+                        <input type="email" id="emailInput" placeholder="Enter your email" class="flex-grow border p-2 rounded" required />
+                        <button type="submit" class="bg-blue-500 text-white p-2 rounded">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <p class="flex items-center mb-2"><Mail class="mr-2" /> rajputbhati.manoj@gmail.com</p>
+                    <p class="flex items-center"><Phone class="mr-2" /> +91 98960 69103</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#servicesMain" class="hover:text-purple-300">Services</a></li>
+                        <li><a href="about.html" class="hover:text-purple-300">About Us</a></li>
+                        <li><a href="Blog.html" class="hover:text-purple-300">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="hover:text-purple-300">Facebook</a></li>
+                        <li><a href="#" class="hover:text-purple-300">Twitter</a></li>
+                        <li><a href="#" class="hover:text-purple-300">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+function handleSubscribe(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const email = document.getElementById('emailInput').value;
+
+        // Simple validation can be added here
+        if (email) {
+            // Implement your subscription logic here (e.g., sending the email to a server)
+            alert(`Subscribed with email: ${email}`);
+
+            // Optionally reset the form
+            document.getElementById('subscriptionForm').reset();
+        }
+    }
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculatePotentialSavings() {
+            const turnover = document.getElementById('annualTurnover').value;
+            const potentialSavings = turnover * 0.1; // Example calculation
+            document.getElementById('savingsOutput').innerText = `Estimated savings: ₹${potentialSavings.toFixed(2)}`;
+        }
+
+        function openCalendar() {
+            document.getElementById('calendar').classList.toggle('hidden');
+        }
+
+        function confirmDate() {
+            const date = document.getElementById('selectedDate').value;
+            alert(`Consultation scheduled for: ${date}`);
+            // Further logic to handle scheduling can be added here
+        }
+
+        function filterFAQs() {
+            const searchQuery = document.getElementById('faqSearch').value.toLowerCase();
+            const faqs = [
+                { question: "What is GST?", answer: "GST is Goods and Services Tax." },
+                { question: "How can GST affect my business?", answer: "GST can affect pricing and cash flow." },
+                { question: "What are input tax credits?", answer: "Input tax credits allow businesses to deduct tax paid on purchases." }
+            ];
+            const filteredFAQs = faqs.filter(faq => faq.question.toLowerCase().includes(searchQuery));
+            const faqsContainer = document.getElementById('faqs');
+            faqsContainer.innerHTML = filteredFAQs.map(faq => `<div class="border p-2 mb-2"><strong>${faq.question}</strong><p>${faq.answer}</p></div>`).join('');
+        }
+
+
+        function toggleAnswer(element) {
+        const answer = element.nextElementSibling;
+        answer.classList.toggle('hidden');
+    }
+
+    function filterFAQs() {
+        const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('strong').innerText.toLowerCase();
+            if (question.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    </script>
+</body>
+</html>

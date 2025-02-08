@@ -1,0 +1,571 @@
+<html>
+<head>
+    <title>Lakshay GST Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="gst.css">
+    <script>
+
+
+
+
+
+function openModal() {
+  document.getElementById('consultationModal').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('consultationModal').classList.add('hidden');
+}
+
+// async function submitForm(event) {
+//   event.preventDefault(); // Prevent default form submission behavior
+
+//   const name = document.getElementById('name').value;
+//   const email = document.getElementById('email').value;
+
+//   // Directly show the success message as there's no server interaction
+//   alert('Your consultation is scheduled.');
+
+//   // Close the modal after submission
+//   closeModal();
+// }
+
+
+   
+
+
+    function showContent(contentId, button) {
+        const contents = document.querySelectorAll('.gst-content');
+        const buttons = document.querySelectorAll('.gst-button');
+
+        // Hide all content
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // Show selected content
+        document.getElementById(contentId).style.display = 'block';
+
+        // Reset all buttons' background color
+        buttons.forEach(btn => {
+            btn.style.backgroundColor = 'transparent';
+            btn.classList.remove('text-black', 'bg-white');
+            btn.classList.add('text-gray-500');
+        });
+
+        // Set the active button's background color
+        button.style.backgroundColor = 'white';
+        button.classList.add('text-black', 'bg-white');
+        button.classList.remove('text-gray-500');
+    }
+
+
+    function showOwnerInfo() {
+    document.getElementById('owner-info').classList.remove('hidden');
+}
+
+function hideOwnerInfo() {
+    document.getElementById('owner-info').classList.add('hidden');
+}
+
+
+function showBot() {
+    document.getElementById('query-info').classList.remove('hidden');
+}
+
+function hideBot() {
+    document.getElementById('query-info').classList.add('hidden');
+}
+
+
+
+function showGSTInfo() {
+    document.getElementById('gst-info-block').classList.remove('hidden');
+}
+
+function hideGSTInfo() {
+    document.getElementById('gst-info-block').classList.add('hidden');
+}
+
+function showForm() {
+    document.getElementById('form-block').classList.remove('hidden');
+}
+
+function hideForm() {
+    document.getElementById('form-block').classList.add('hidden');
+}
+
+// Optional: handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // You can add your form submission logic here
+    alert('Form submitted!'); // Replace with actual submission logic
+    hideForm(); // Hide the form after submission
+});
+
+
+function showMessage() {
+    const messageBlock = document.getElementById('message');
+    const query = document.getElementById('query').value; // Get the user's query
+    messageBlock.textContent = `Your message has been submitted: "${query}"`; // Set the message content
+    messageBlock.classList.remove('hidden');
+    messageBlock.style.opacity = 1;
+
+    // Hide the message after 1 minute
+    setTimeout(() => {
+        messageBlock.style.opacity = 0;
+        setTimeout(() => {
+            messageBlock.classList.add('hidden');
+        }, 500); // Match this with the CSS transition duration
+    }, 60000); // Message shown for 1 minute
+}
+
+
+function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
+
+    function showAlert() {
+            alert("Coming Soon");
+        }
+
+    </script>
+
+    <style>
+        #message {
+    background-color: #f0f8ff;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #007bff;
+    transition: opacity 0.5s ease;
+}
+
+
+
+
+
+
+    </style>
+
+</head>
+<body class="bg-blue-100 overflow-x-hidden">
+    <header class="bg-white shadow fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <i class="fas fa-calculator text-blue-600 text-2xl mr-2"></i>
+                <span class="text-xl font-bold">Lakshay GST Consultancy</span>
+            </div>
+            <nav class="space-x-4 flex items-center sm:space-x-4">
+                <!-- Regular Navigation Links for Medium/Large Screens -->
+                <div class="hidden sm:flex space-x-4">
+                    <a href="#about" class="text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-gray-900">Services</a>
+                    <a href="#gst-info" class="text-gray-700 hover:text-gray-900">GST Info</a>
+                    <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
+            
+                <!-- Dropdown for Small Screens -->
+                <div class="sm:hidden">
+                    <button onclick="toggleDropdown()" class="text-gray-700 hover:text-gray-900">
+                        Menu
+                    </button>
+                    <div id="dropdown" class="hidden absolute right-4 bg-white shadow-lg mt-2 rounded-md w-48">
+                        <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About</a>
+                        <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</a>
+                        <a href="#gst-info" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">GST Info</a>
+                        <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
+                    </div>
+                </div>
+            </nav>
+            
+        </div>
+    </header>
+
+    <main  class="flex flex-col items-center justify-center min-h-screen text-center pt-16 ">
+        <h1  class="text-6xl sm:text-5xl font-bold text-gray-900 mb-4 ">Expert GST Consultancy Services</h1>
+        <p class="text-lg text-gray-700 mb-8">Simplifying GST compliance for businesses across India. We provide comprehensive GST solutions tailored to your needs.</p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:items-center md:items-end " >
+            <button onclick="showForm()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 h-fit">Get Started</button>
+            <button onclick="showGSTInfo()" class="bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">Learn More</button>
+
+            <a href="about.html" class="bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">Meet Manoj Bhati</a>
+
+        </div>
+    </main>
+
+    <!-- <div class="fixed bottom-4 right-4">
+        <button id="chatButton" onclick="showBot()" class="bg-black text-white p-3 rounded-full">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+    
+    <div id="query-info" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div id="chat-container" class="fixed bottom-0 right-0 mb-4 mr-4 bg-white p-4 rounded-lg shadow-lg flex flex-col" style="width: 400px; height: auto;">
+            <div class="chat-header">Chatbot</div>
+            <div class="chat-body" id="chat-body"></div>
+            <textarea id="user-input" placeholder="Type your message..." class="border rounded px-2 py-2 mb-2 h-24 resize-none"></textarea>
+            <button id="send-btn" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send</button>
+            <button onclick="hideBot()" class="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+        </div>
+    </div>
+     -->
+    
+
+     <div class="fixed bottom-4 right-4">
+        <button id="chatButton" onclick="showBot()" class="bg-black text-white p-3 rounded-full">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+    
+    <div id="query-info" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div id="chat-container" class="fixed bottom-0 right-0 mb-4 mr-4 bg-white p-4 rounded-lg shadow-lg flex flex-col" style="width: 400px; height: auto;">
+            <div class="chat-header">Chatbot</div>
+            <div class="chat-body" id="chat-body"></div>
+            <textarea id="user-input" placeholder="Type your message..." class="border rounded px-2 py-2 mb-2 h-24 resize-none"></textarea>
+            <button id="send-btn" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send</button>
+            <button onclick="hideBot()" class="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+        </div>
+    </div>
+    
+
+    
+
+    <div id="about" class="bg-white py-16 min-h-screen flex flex-col justify-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-16">About Us</h1>
+            <div class="flex flex-col md:flex-row justify-center items-start">
+                <div class="md:w-2/3 mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">Satyam associate taxation consultant </h2>
+                    <p class="mb-4">Lakshay GST Consultancy is a leading provider of GST services in India. Our team of expert consultants has a deep understanding of Indian tax laws and is committed to ensuring our clients' success in navigating the complexities of GST.</p>
+                    <p>Since our inception, we have helped hundreds of businesses across various industries achieve GST compliance and optimize their tax strategies.</p>
+                </div>
+                <div class="md:w-1/3 bg-white shadow-md rounded-lg p-6 flex items-center justify-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Company Profile</h3>
+                        <p class="text-gray-600 mb-4">Lakshay GST Consultancy at a glance</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Established team of GST experts and financial consultants</li>
+                            <li>Served over 1000 clients across various industries</li>
+                            <li>100% success rate in GST audits and compliance</li>
+                            <li>Recognized for excellence in GST consultancy</li>
+                            <li>Customized solutions for businesses of all sizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="services" class="container mx-auto py-16 min-h-screen flex flex-col justify-center">
+        <h1 class="text-4xl font-bold text-center mb-8">Our Services</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="registration.html" class="block bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">GST Registration</h2>
+                <p class="text-gray-700">Hassle-free GST registration process for businesses of all sizes. We handle the paperwork so you can focus on your business.</p>
+            </a>
+            
+            <a href="return.html" class="block bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-file-invoice text-blue-500 text-3xl"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">GST Return Filing</h2>
+                <p class="text-gray-700">Timely and accurate filing of GST returns, ensuring compliance and avoiding penalties.</p>
+            </a>
+            <a href="Consultancy.html" class=" block bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-question-circle text-blue-500 text-3xl"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">GST Advisory</h2>
+                <p class="text-gray-700">Expert advice on GST implications for your business decisions, helping you optimize your tax strategy.</p>
+            </a>
+            <button onclick="showAlert()">
+                <div class=" block bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-blue-500 text-3xl"></i>
+                    </div>
+                    <h2 class=" flex items-left text-xl font-bold mb-2">GST Audit Support</h2>
+                    <p class=" text-left text-gray-700">Comprehensive support during GST audits, ensuring smooth interactions with tax authorities.</p>
+                </div>
+            </button>
+            <button onclick="showAlert()">
+                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-book text-blue-500 text-3xl"></i>
+                    </div>
+                    <h2 class=" flex items-left text-xl font-bold mb-2">GST Training</h2>
+                    <p class=" text-left text-gray-700">Customized GST training programs for your staff to enhance in-house GST management capabilities.</p>
+                </div>
+            </button>
+            <button onclick="showAlert()">
+                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-blue-500 text-3xl"></i>
+                    </div>
+                    <h2 class=" flex items-left text-xl font-bold mb-2">GST Reconciliation</h2>
+                    <p class="  text-left text-gray-700">Detailed reconciliation of GST data to identify discrepancies and ensure accuracy in your GST compliance.</p>
+                </div>
+            </button>
+        </div>
+    </div>
+    
+
+    <div class="w-full max-w-4xl mx-auto p-4 flex flex-col justify-center items-center min-h-screen" id="gst-info">
+        <h1 class="text-4xl font-bold text-center mb-8">Understanding GST</h1>
+        <div class="bg-gray-100 rounded-lg shadow-md w-full">
+            <div class="flex border-b border-gray-200">
+                <button onclick="showContent('what-is-gst', this)" class="gst-button flex-1 py-4 px-6 text-center text-lg font-semibold text-black bg-white rounded-t-lg">What is GST?</button>
+                <button onclick="showContent('benefits-of-gst', this)" class="gst-button flex-1 py-4 px-6 text-center text-lg font-semibold text-gray-500">Benefits of GST</button>
+                <button onclick="showContent('gst-rates', this)" class="gst-button flex-1 py-4 px-6 text-center text-lg font-semibold text-gray-500">GST Rates</button>
+            </div>
+            <div class="p-6 gst-content" id="what-is-gst">
+                <h2 class="text-2xl font-bold mb-4">What is GST?</h2>
+                <p class="text-lg text-gray-700">
+                    Goods and Services Tax (GST) is a comprehensive indirect tax levied on the manufacture, sale, and consumption of goods and services throughout India. It replaced multiple cascading taxes levied by the central and state governments. GST is categorized into CGST (Central GST), SGST (State GST), and IGST (Integrated GST) for inter-state transactions.
+                </p>
+            </div>
+            <div class="p-6 gst-content hidden" id="benefits-of-gst">
+                <h2 class="text-2xl font-bold mb-4">Benefits of GST</h2>
+                <p class="text-lg text-gray-700">
+                    GST simplifies the tax structure, reduces the overall tax burden, and promotes compliance. It helps in eliminating the cascading effect of taxes, ensures transparency, and makes the tax administration more efficient. Additionally, it encourages businesses to maintain proper records and improves their profitability.
+                </p>
+            </div>
+            <div class="p-6 gst-content hidden" id="gst-rates">
+                <h2 class="text-2xl font-bold mb-4">GST Rates</h2>
+                <p class="text-lg text-gray-700">
+                    GST rates vary based on the type of goods and services. There are four main GST rate slabs: 5%, 12%, 18%, and 28%. Essential goods typically fall under the lower tax slabs, while luxury goods attract the higher rates. Additionally, some items are exempt from GST.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center min-h-screen bg-blue-100" id="contact">
+        <div class="text-center p-8 shadow-lg w-full mx-16">
+            <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+            <p class="text-lg mb-4">Have questions about GST or need expert consultancy? Reach out to us today.</p>
+            <p class="text-lg mb-2"><strong>Email:rajputbhati.manoj@gmail.com</strong> </p>
+            <p class="text-lg mb-2"><strong>Phone:</strong> +91 9896069103</p>
+            <p class="text-lg mb-4"><strong>Address:</strong> Mohna Rd,Ballabgarh,Faridabad,Haryana</p>
+            <button onclick="openModal()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+                Schedule a Consultation
+              </button>
+             </div>
+    </div>
+
+    <div id="consultationModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80 md:w-96 relative">
+          <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-600" onclick="closeModal()">&times;</button>
+          <h2 class="text-2xl font-semibold mb-2">Schedule a Consultation</h2>
+          <p class="text-gray-600 mb-4">Fill out this form to request a consultation. We'll get back to you soon to confirm your appointment.</p>
+      
+          <!-- Form Start -->
+          <form id="consultationForm" action="consultation"  method="post"  class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" name="name" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            </div>
+      
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <!-- Changed to input type "text" instead of "email" -->
+              <input type="text" id="email" name="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            </div>
+      
+            <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Submit Request</button>
+          </form>
+          <!-- Form End -->
+        </div>
+      </div>
+      
+      
+      
+      
+
+
+
+    
+    
+
+    <div class="text-center">
+        <h1 class="text-4xl font-bold mb-8">Ask Us Anything</h1>
+        <div class="bg-white shadow-md rounded-lg p-8  mx-8">
+            <h2 class="text-2xl font-bold mb-2">GST Q&A</h2>
+            <p class="text-gray-600 mb-4">Ask your questions about GST and get expert answers</p>
+            <textarea class="w-full border border-gray-300 rounded-lg p-4 mb-4" rows="4" placeholder="Type your question about GST..."></textarea>
+            <button class="w-full bg-black text-white py-2 rounded-lg">Ask Question</button>
+        </div>
+    </div>
+
+    <footer class="w-full text-center mt-8">
+        <p class="text-gray-600">&copy; 2024 Lakshay GST Consultancy. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <a href="#" class="text-gray-600">Terms of Service</a>
+            <a href="#" class="text-gray-600">Privacy</a>
+        </div>
+    </footer>
+
+
+
+    <div id="owner-info" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <img src="WhatsApp Image 2024-10-17 at 14.57.01_09388a45.jpg" alt="Manoj Bhati" class="w-40 h-40 object-cover mb-4 mx-auto rounded-full">
+            <h2 class="text-2xl font-bold mb-2">Manoj Bhati</h2>
+            <p class="text-gray-600">Manoj Bhati is an expert in GST consultancy with over 10 years of experience helping businesses navigate complex tax regulations.</p>
+            <button onclick="hideOwnerInfo()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Close</button>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="gst-info-block" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-h-3/4 overflow-auto w-3/4">
+            <h2 class="text-2xl font-bold mb-4">Understanding GST</h2>
+            <p class="mb-4">Goods and Services Tax (GST) is a comprehensive indirect tax levied on the manufacture, sale, and consumption of goods and services throughout India. It replaced multiple cascading taxes levied by the central and state governments.</p>
+            
+            <h3 class="font-semibold mb-2">Benefits of GST:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li>Simplifies the tax structure.</li>
+                <li>Reduces the overall tax burden.</li>
+                <li>Eliminates cascading effect of taxes.</li>
+                <li>Ensures transparency in taxation.</li>
+                <li>Encourages businesses to maintain proper records.</li>
+            </ul>
+            
+            <h3 class="font-semibold mb-2">GST Procedure:</h3>
+            <p class="mb-4">The procedure for GST registration includes the following steps:</p>
+            <ol class="list-decimal list-inside mb-4">
+                <li>Visit the GST portal and complete the application form.</li>
+                <li>Provide necessary documents, including proof of business registration.</li>
+                <li>Verification of documents by tax authorities.</li>
+                <li>Receive GSTIN (Goods and Services Tax Identification Number).</li>
+            </ol>
+            
+            <h3 class="font-semibold mb-2">Common Queries:</h3>
+            <p>For any queries regarding GST, please feel free to reach out to our consultancy. We are here to assist you!</p>
+            
+            <button onclick="hideGSTInfo()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Close</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- Button to learn more about GST -->
+<!-- <button onclick="showGSTInfo()" class="bg-white text-gray-700 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100">Learn More</button> -->
+
+<!-- GST Info Modal -->
+<div id="gst-info-block" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-h-3/4 overflow-y-auto w-3/4">
+        <h2 class="text-2xl font-bold mb-4">Understanding GST</h2>
+        <p class="mb-4">Goods and Services Tax (GST) is a comprehensive indirect tax levied on the manufacture, sale, and consumption of goods and services throughout India. It replaced multiple cascading taxes levied by the central and state governments.</p>
+        
+        <h3 class="font-semibold mb-2">Benefits of GST:</h3>
+        <ul class="list-disc list-inside mb-4">
+            <li>Simplifies the tax structure.</li>
+            <li>Reduces the overall tax burden.</li>
+            <li>Eliminates cascading effect of taxes.</li>
+            <li>Ensures transparency in taxation.</li>
+            <li>Encourages businesses to maintain proper records.</li>
+            <li>Facilitates easier tax compliance and administration.</li>
+            <li>Boosts the overall economy by increasing tax compliance.</li>
+        </ul>
+        
+        <h3 class="font-semibold mb-2">GST Procedure:</h3>
+        <p class="mb-4">The procedure for GST registration includes the following steps:</p>
+        <ol class="list-decimal list-inside mb-4">
+            <li>Visit the GST portal and complete the application form.</li>
+            <li>Provide necessary documents, including proof of business registration.</li>
+            <li>Verification of documents by tax authorities.</li>
+            <li>Receive GSTIN (Goods and Services Tax Identification Number).</li>
+            <li>Complete additional compliance requirements as necessary.</li>
+        </ol>
+        
+        <h3 class="font-semibold mb-2">Common Queries:</h3>
+        <p>For any queries regarding GST, please feel free to reach out to our consultancy. We are here to assist you!</p>
+
+        <h3 class="font-semibold mb-2">GST Returns:</h3>
+        <p class="mb-4">Businesses must file GST returns periodically. The main types of returns are:</p>
+        <ul class="list-disc list-inside mb-4">
+            <li><strong>GSTR-1:</strong> Details of outward supplies.</li>
+            <li><strong>GSTR-3B:</strong> Summary of inward and outward supplies.</li>
+            <li><strong>GSTR-9:</strong> Annual return.</li>
+        </ul>
+
+        <h3 class="font-semibold mb-2">GST Audit:</h3>
+        <p class="mb-4">An audit is mandatory for businesses with a turnover above a certain threshold. It involves a detailed examination of financial records and compliance with GST laws.</p>
+
+        <h3 class="font-semibold mb-2">GST Exemptions:</h3>
+        <p>Certain goods and services are exempt from GST. Common exempt items include:</p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Healthcare services.</li>
+            <li>Educational services.</li>
+            <li>Public transportation.</li>
+        </ul>
+
+        <button onclick="hideGSTInfo()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Close</button>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="form-block" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+        <form id="contact-form" action="submit_query.php" method="POST">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 mb-2">Name:</label>
+                <input type="text" id="name" name="name" required class="border border-gray-300 rounded-lg p-2 w-full" placeholder="Enter your name">
+            </div>
+            <div class="mb-4">
+                <label for="number" class="block text-gray-700 mb-2">Phone Number:</label>
+                <input type="tel" id="number" name="number" required class="border border-gray-300 rounded-lg p-2 w-full" placeholder="Enter your phone number">
+            </div>
+            <div class="mb-4">
+                <label for="location" class="block text-gray-700 mb-2">Location:</label>
+                <input type="text" id="location" name="location" required class="border border-gray-300 rounded-lg p-2 w-full" placeholder="Enter your location">
+            </div>
+            <div class="mb-4">
+                <label for="query" class="block text-gray-700 mb-2">Your Query:</label>
+                <textarea id="query" name="query" required class="border border-gray-300 rounded-lg p-2 w-full" rows="4" placeholder="Type your query here..."></textarea>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="showMessage()">Submit</button>
+        </form>
+        <button onclick="hideForm()" class="mt-4 text-blue-600">Cancel</button>
+    </div>
+</div>
+
+<div id="message" class="hidden"></div>
+
+
+<div id="message" class="hidden"></div>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+    
+    
+</body>
+</html>
